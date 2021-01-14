@@ -14,7 +14,7 @@ import { Create } from './components/client/create';
 
 export const App = () => (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="reduxapp">
         <Navbar />
         <Switch>
           <Route exact path="/" component={Container} />          

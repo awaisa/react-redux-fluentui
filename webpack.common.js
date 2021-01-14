@@ -2,12 +2,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
   entry: './src/index.tsx',
   output: {
     path: __dirname + '/public',
     //publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   devServer: {
     contentBase: './public',
@@ -24,6 +23,15 @@ module.exports = {
   },
   resolve: {
       extensions: [ '.tsx', '.ts', '.js' ],
+  },
+  optimization: {
+    splitChunks: { 
+      cacheGroups: {
+        common: {
+          test: /[\\/]node_modules[\\/]/, name: "common", chunks: "all"
+        }
+      }  
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),

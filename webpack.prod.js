@@ -8,8 +8,8 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [new TerserPlugin({
       extractComments: false,
-    })],
-  }
+    })]
+  },
   //context: path.join(__dirname, 'your-app'),
   // plugins: [
   //   new CopyWebpackPlugin({
